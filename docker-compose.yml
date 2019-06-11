@@ -1,0 +1,22 @@
+version: "3.0"
+services:
+  centos:
+   image: centos
+   container_name: mycentos
+   volumes:
+    - data3:/var/www/html
+   command: /usr/sbin/init
+   
+  web:
+   build: /root/app2/
+   image: httpd
+   container_name: myweb
+   ports:
+    - "18082:80"
+
+   volumes:
+    - data3:/var/www/html
+      
+volumes:
+  data3:
+
